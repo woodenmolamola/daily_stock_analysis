@@ -69,8 +69,8 @@ jobs:
 
           # Gemini AI（主选）
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || secrets.GEMINI_MODEL || 'gemini-3-flash-preview' }}
-          GEMINI_MODEL_FALLBACK: ${{ vars.GEMINI_MODEL_FALLBACK || secrets.GEMINI_MODEL_FALLBACK || 'gemini-2.5-flash' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || secrets.GEMINI_MODEL || 'gemini/gemini-3-flash-preview' }}
+          GEMINI_MODEL_FALLBACK: ${{ vars.GEMINI_MODEL_FALLBACK || secrets.GEMINI_MODEL_FALLBACK || 'gemini/gemini-2.5-flash' }}
           GEMINI_REQUEST_DELAY: '3.0'
           
           # AIHubMix（优先于 OPENAI_API_KEY，自动适配 base_url，推荐国内用户）
@@ -99,6 +99,8 @@ jobs:
           MINIMAX_API_KEYS: ${{ secrets.MINIMAX_API_KEYS }}
           BRAVE_API_KEYS: ${{ secrets.BRAVE_API_KEYS }}
           SEARXNG_BASE_URLS: ${{ secrets.SEARXNG_BASE_URLS }}
+          SEARCH_SERVICE_PRIORITY: ${{ vars.SEARCH_SERVICE_PRIORITY || 'tavily,serpapi,minimax,brave,searxng,bocha' }}
+          ENABLE_NEWS_SEARCH: ${{ vars.ENABLE_NEWS_SEARCH || 'true' }}
           
           # ==========================================
           # 通知渠道（可同时配置多个，全部推送）
